@@ -1,14 +1,29 @@
 package lk.ijse.pearlgims.controller;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import lk.ijse.pearlgims.dto.SupplierDTO;
+import lk.ijse.pearlgims.model.SupplierModel;
 
-public class SupplierPageController {
+import java.io.IOException;
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+
+public class SupplierPageController implements Initializable {
     public ScrollPane supplierScrollPane1;
     public ScrollPane supplierScrollPane;
     public JFXButton btnUpdate;
@@ -23,6 +38,9 @@ public class SupplierPageController {
     public ImageView supplierImg;
     public Label lblCompany;
     public Label lblPhoneNumber;
+    public GridPane gridPane;
+
+    SupplierModel supplierModel = new SupplierModel();
 
     public void iconAddSupplierOnAction(MouseEvent mouseEvent) {
     }
@@ -37,5 +55,46 @@ public class SupplierPageController {
     }
 
     public void customerCardOnClick(MouseEvent mouseEvent) {
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        gridPane.widthProperty().addListener((obs, oldVal, newVal) -> {
+            try {
+                loadSupplierCards(newVal.doubleValue());
+            } catch (Exception e){
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+                e.printStackTrace();
+            }
+        });
+    }
+
+    private void loadSupplierCards(double gridWidth) throws SQLException, ClassNotFoundException {
+
+        ArrayList<SupplierDTO> suppliers = supplierModel.getAllSuppliers();
+
+        gridPane.getChildren().clear(); // Clear old cards
+
+        try {
+            double cardWidth = 200; // Approximate width of one card (adjust as needed)
+            int columns = Math.max((int)(gridWidth / (cardWidth + 20)), 1); // Ensure at least 1 column
+
+            int i = 0;
+            for (SupplierDTO supplier : suppliers) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/component/SuppliersCard.fxml"));
+                AnchorPane card = loader.load();
+                SupplierCardController supplierCardController = loader.getController();
+                supplierCardController.load(supplier);
+
+                int col = i % columns;
+                int row = i / columns;
+
+                gridPane.add(card, col, row);
+                GridPane.setMargin(card, new Insets(10));
+                i++;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

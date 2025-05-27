@@ -13,7 +13,12 @@ import java.sql.SQLException;
 public class AppInitializer extends Application {
     public static void main(String[]args) throws ClassNotFoundException, SQLException {
         launch(args);
-        DBConnection.getInstance().getConnection();
+        try {
+            DBConnection.getInstance().getConnection().close();
+            System.out.println("Connection Successfully");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="238.0" maxWidth="202.0" minHeight="169.0" minWidth="178.0" onMouseClicked="#customerCardOnClick" prefHeight="170.0" prefWidth="178.0" style="-fx-background-color: linear-gradient(to bottom, #ffffff 0%, #fafafb 100%); -fx-background-radius: 20px; -fx-border-radius: 20px;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pearlgims.controller.SupplierCardController">
+   <children>
+      <ImageView fitHeight="91.0" fitWidth="114.0" layoutX="43.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/supplierss.png" />
+         </image>
+      </ImageView>
+      <Separator layoutX="5.0" layoutY="119.0" prefHeight="3.0" prefWidth="167.0" />
+      <Label fx:id="supplierName" alignment="CENTER" contentDisplay="CENTER" layoutY="130.0" prefHeight="17.0" prefWidth="177.0" text="Anura Perera">
+         <padding>
+            <Insets left="5.0" right="5.0" />
+         </padding>
+      </Label>
+      <Label fx:id="lblPhoneNumber" alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="148.0" prefHeight="17.0" prefWidth="156.0" text="0713465387">
+         <padding>
+            <Insets left="5.0" right="5.0" />
+         </padding>
+      </Label>
+   </children>
+   <cursor>
+      <Cursor fx:constant="HAND" />
+   </cursor>
+   <padding>
+      <Insets left="10.0" right="10.0" />
+   </padding>
+</AnchorPane>

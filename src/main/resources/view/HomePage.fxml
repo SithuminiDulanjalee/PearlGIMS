@@ -5,80 +5,88 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1343.0" style="-fx-background-color: #fae9f5;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pearlgims.controller.HomePageController">
+<AnchorPane prefHeight="588.0" prefWidth="500.0" style="-fx-background-color: #fae9f5;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pearlgims.controller.HomePageController">
    <children>
-      <AnchorPane layoutX="296.0" layoutY="75.0" prefHeight="149.0" prefWidth="222.0" style="-fx-background-color: #abbfe5; -fx-background-radius: 20px;">
+      <HBox layoutX="38.0" layoutY="75.0" spacing="10.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="75.0">
          <children>
-            <Label layoutX="16.0" layoutY="23.0" opacity="0.7" styleClass="card-heading-font" stylesheets="@../../../../../Temp/clothify-store-JavaFx/src/main/resources/css/font.css" text="Customers">
-               <font>
-                  <Font name="SansSerif Bold" size="18.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="65.0" fitWidth="65.0" layoutX="139.0" layoutY="34.0" opacity="0.9" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/icons/customers.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="24.0" layoutY="107.0" opacity="0.9" styleClass="card-price-font" stylesheets="@../../../../../Temp/clothify-store-JavaFx/src/main/resources/css/font.css" text="51">
-               <font>
-                  <Font name="System Bold" size="25.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </Label>
+            <AnchorPane prefHeight="149.0" prefWidth="222.0" style="-fx-background-color: #abbfe5; -fx-background-radius: 20px;">
+               <children>
+                  <Label layoutX="16.0" layoutY="23.0" opacity="0.7" styleClass="card-heading-font" stylesheets="@../../../../../   Temp/clothify-store-JavaFx/src/main/resources/css/font.css" text="Customers">
+                     <font>
+                        <Font name="SansSerif Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="65.0" fitWidth="65.0" layoutX="139.0" layoutY="34.0" opacity="0.9" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons/customers.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="24.0" layoutY="107.0" opacity="0.9" styleClass="card-price-font" stylesheets="@../../../../../Temp/clothify-store-JavaFx/src/main/resources/css/font.css" text="51">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Region HBox.hgrow="ALWAYS" />
+            <AnchorPane prefHeight="149.0" prefWidth="222.0" style="-fx-background-color: #abbfe5; -fx-background-radius: 20px;">
+               <children>
+                  <Label layoutX="16.0" layoutY="23.0" opacity="0.7" styleClass="card-heading-font" stylesheets="@../../../../../Temp/clothify-store-JavaFx/src/main/resources/css/font.css" text="Orders">
+                     <font>
+                        <Font name="SansSerif Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="65.0" fitWidth="65.0" layoutX="139.0" layoutY="34.0" opacity="0.9" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons/orders.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="24.0" layoutY="107.0" opacity="0.9" styleClass="card-price-font" stylesheets="@../../../../../Temp/clothify-store-JavaFx/src/main/resources/css/font.css" text="15">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Region HBox.hgrow="ALWAYS" />
+            <AnchorPane prefHeight="149.0" prefWidth="222.0" style="-fx-background-color: #abbfe5; -fx-background-radius: 20px;">
+               <children>
+                  <Label layoutX="16.0" layoutY="23.0" opacity="0.7" styleClass="card-heading-font" stylesheets="@../../../../../Temp/clothify-store-JavaFx/src/main/resources/css/font.css" text="Suppliers">
+                     <font>
+                        <Font name="SansSerif Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="65.0" fitWidth="65.0" layoutX="139.0" layoutY="34.0" opacity="0.9" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons/suppliers.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="24.0" layoutY="107.0" opacity="0.9" styleClass="card-price-font" stylesheets="@../../../../../Temp/clothify-store-JavaFx/src/main/resources/css/font.css" text="12">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Label>
+               </children>
+            </AnchorPane>
          </children>
-      </AnchorPane>
-      <AnchorPane layoutX="38.0" layoutY="75.0" prefHeight="149.0" prefWidth="222.0" style="-fx-background-color: #abbfe5; -fx-background-radius: 20px;">
-         <children>
-            <Label layoutX="16.0" layoutY="23.0" opacity="0.7" styleClass="card-heading-font" stylesheets="@../../../../../Temp/clothify-store-JavaFx/src/main/resources/css/font.css" text="Orders">
-               <font>
-                  <Font name="SansSerif Bold" size="18.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="65.0" fitWidth="65.0" layoutX="139.0" layoutY="34.0" opacity="0.9" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/icons/orders.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="24.0" layoutY="107.0" opacity="0.9" styleClass="card-price-font" stylesheets="@../../../../../Temp/clothify-store-JavaFx/src/main/resources/css/font.css" text="15">
-               <font>
-                  <Font name="System Bold" size="25.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </Label>
-         </children>
-      </AnchorPane>
+      </HBox>
       <Label layoutX="38.0" layoutY="23.0" prefHeight="26.0" prefWidth="65.0" text="Home" textFill="#772450" AnchorPane.leftAnchor="38.0" AnchorPane.topAnchor="23.0">
          <font>
             <Font name="Cambria Bold" size="22.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="574.0" layoutY="75.0" prefHeight="149.0" prefWidth="222.0" style="-fx-background-color: #abbfe5; -fx-background-radius: 20px;">
-         <children>
-            <Label layoutX="16.0" layoutY="23.0" opacity="0.7" styleClass="card-heading-font" stylesheets="@../../../../../Temp/clothify-store-JavaFx/src/main/resources/css/font.css" text="Suppliers">
-               <font>
-                  <Font name="SansSerif Bold" size="18.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="65.0" fitWidth="65.0" layoutX="139.0" layoutY="34.0" opacity="0.9" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/icons/suppliers.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="24.0" layoutY="107.0" opacity="0.9" styleClass="card-price-font" stylesheets="@../../../../../Temp/clothify-store-JavaFx/src/main/resources/css/font.css" text="12">
-               <font>
-                  <Font name="System Bold" size="25.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </Label>
-         </children>
-      </AnchorPane>
    </children>
 </AnchorPane>

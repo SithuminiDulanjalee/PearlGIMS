@@ -7,133 +7,169 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="803.0" style="-fx-background-color: #fae9f5;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pearlgims.controller.DashboardController">
+<AnchorPane prefHeight="746.0" prefWidth="865.0" style="-fx-background-color: #fae9f5;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pearlgims.controller.DashboardController">
    <children>
-      <AnchorPane fx:id="ancMainContainer" layoutX="198.4" layoutY="75.2" prefHeight="728.0" prefWidth="1343.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="198.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="-1.0" layoutY="-11.0" pickOnBounds="true">
-         <image>
-            <Image url="@../images/Logo.png" />
-         </image>
-      </ImageView>
-      <VBox layoutX="-1.0" layoutY="139.0" prefHeight="554.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: #bb3583; -fx-background-radius: 5px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="139.0">
+      <AnchorPane fx:id="ancMainContainer" layoutX="209.0" layoutY="74.0" prefHeight="614.0" style="-fx-background-color: red;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="85.0" />
+      <AnchorPane layoutX="212.0" layoutY="27.0" prefHeight="54.0" style="-fx-background-color: #ffffff; -fx-background-radius: 100px; -fx-border-color: #772450; -fx-border-radius: 30px;" AnchorPane.leftAnchor="240.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
          <children>
-            <JFXButton alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#btnHomePageOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fcf3f9;" text="Home">
-               <font>
-                  <Font name="SansSerif Bold" size="14.0" />
-               </font>
-               <VBox.margin>
-                  <Insets top="20.0" />
-               </VBox.margin>
-               <graphic>
-                  <ImageView fitHeight="18.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true">
+            <HBox alignment="CENTER_LEFT" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label text="Welcome to Pearl Garment Inventory, Admin" textFill="#313866">
+                     <font>
+                        <Font name="Cambria Bold Italic" size="21.0" />
+                     </font>
+                  </Label>
+                  <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                  <ImageView fitHeight="33.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/icons/home.png" />
+                        <Image url="@../images/icons/notification.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#btnCustomerPageOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fcf3f9;" text="Customers">
-               <font>
-                  <Font name="SansSerif Bold" size="14.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="24.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="54.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/icons/customers.png" />
+                        <Image url="@../images/icons/admin female.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="312.0" mnemonicParsing="false" onAction="#btnProductPageOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fcf3f9;" text="Products">
-               <font>
-                  <Font name="SansSerif Bold" size="14.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="23.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/icons/products.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#btnOrderPageOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fcf3f9;" text="Orders">
-               <font>
-                  <Font name="SansSerif Bold" size="14.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/icons/orders.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#btnSupplierPageOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fcf3f9;" text="Suppliers">
-               <font>
-                  <Font name="SansSerif Bold" size="14.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="29.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/icons/suppliers.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#btnInventoryPageOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fcf3f9;" text="Inventory">
-               <font>
-                  <Font name="SansSerif Bold" size="14.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/icons/inventory.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="382.0" mnemonicParsing="false" onAction="#btnQualityCheckPageOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fcf3f9;" text="Quality Check">
-               <font>
-                  <Font name="SansSerif Bold" size="14.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/icons/quality check.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="452.0" mnemonicParsing="false" onAction="#btnPaymentPageOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fcf3f9;" text="Payment">
-               <font>
-                  <Font name="SansSerif Bold" size="14.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="24.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/icons/payment.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="523.0" mnemonicParsing="false" onAction="#btnReportPageOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fcf3f9;" text="Report">
-               <font>
-                  <Font name="SansSerif Bold" size="14.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="24.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/icons/report.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <Line endX="71.0928726196289" startX="-100.0" stroke="#b4b1b1" />
-            <JFXButton alignment="BASELINE_LEFT" layoutX="20.0" layoutY="459.0" mnemonicParsing="false" onAction="#btnReportPageOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fcf3f9;" text="Logout">
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #bb3583;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <VBox prefHeight="554.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: #bb3583; -fx-background-radius: 5px;" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#btnHomePageOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fcf3f9;" text="Home">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons/home.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#btnCustomerPageOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fcf3f9;" text="Customers">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons/customers.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="312.0" mnemonicParsing="false" onAction="#btnProductPageOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fcf3f9;" text="Products">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons/products.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#btnOrderPageOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fcf3f9;" text="Orders">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons/orders.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#btnSupplierPageOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fcf3f9;" text="Suppliers">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="29.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons/suppliers.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#btnInventoryPageOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fcf3f9;" text="Inventory">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons/inventory.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="382.0" mnemonicParsing="false" onAction="#btnQualityCheckPageOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fcf3f9;" text="Quality Check">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons/quality check.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="452.0" mnemonicParsing="false" onAction="#btnPaymentPageOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fcf3f9;" text="Payment">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons/payment.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="523.0" mnemonicParsing="false" onAction="#btnReportPageOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fcf3f9;" text="Report">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons/report.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </VBox>
+         </center>
+         <bottom>
+            <JFXButton alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#btnReportPageOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fcf3f9;" text="Logout" BorderPane.alignment="CENTER">
                <font>
                   <Font name="SansSerif Bold" size="14.0" />
                </font>
@@ -144,39 +180,22 @@
                      </image>
                   </ImageView>
                </graphic>
-               <VBox.margin>
-                  <Insets top="30.0" />
-               </VBox.margin>
+               <BorderPane.margin>
+                  <Insets bottom="20.0" left="10.0" right="10.0" />
+               </BorderPane.margin>
             </JFXButton>
-         </children>
-         <padding>
-            <Insets left="10.0" right="10.0" />
-         </padding>
-      </VBox>
-      <AnchorPane layoutX="212.0" layoutY="27.0" prefHeight="54.0" prefWidth="1238.0" style="-fx-background-color: #ffffff; -fx-background-radius: 100px; -fx-border-color: #772450; -fx-border-radius: 30px;" AnchorPane.leftAnchor="240.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
-         <children>
-            <Label layoutX="25.0" layoutY="16.0" text="Welcome to Pearl Garment Inventory, Admin" textFill="#313866">
-               <font>
-                  <Font name="Cambria Bold Italic" size="21.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="33.0" fitWidth="27.0" layoutX="1142.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/icons/notification.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-            <ImageView fitHeight="54.0" fitWidth="48.0" layoutX="1177.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/icons/admin female.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-         </children>
-      </AnchorPane>
+         </bottom>
+         <top>
+            <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #fae9f5;" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../images/Logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </StackPane>
+         </top>
+      </BorderPane>
    </children>
 </AnchorPane>

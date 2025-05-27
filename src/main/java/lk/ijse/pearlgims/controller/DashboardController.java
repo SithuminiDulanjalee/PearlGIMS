@@ -8,6 +8,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.function.BooleanSupplier;
 
 public class DashboardController implements Initializable {
     public AnchorPane ancMainContainer;
@@ -35,8 +36,12 @@ public class DashboardController implements Initializable {
         try {
             ancMainContainer.getChildren().clear();
             AnchorPane anchorPane = FXMLLoader.load(getClass().getResource(path));
-            anchorPane.prefWidthProperty().bind(ancMainContainer.widthProperty());
-            anchorPane.prefHeightProperty().bind(ancMainContainer.heightProperty());
+
+            AnchorPane.setTopAnchor(anchorPane, 0.0);
+            AnchorPane.setBottomAnchor(anchorPane, 0.0);
+            AnchorPane.setLeftAnchor(anchorPane, 0.0);
+            AnchorPane.setRightAnchor(anchorPane, 0.0);
+
             ancMainContainer.getChildren().add(anchorPane);
         }catch (Exception e){
             e.printStackTrace();
@@ -59,5 +64,6 @@ public class DashboardController implements Initializable {
     }
 
     public void btnReportPageOnAction(ActionEvent actionEvent) {
+navigateTo("/view/component/SuppliersCard.fxml");
     }
 }

@@ -19,18 +19,13 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class CustomerPageController implements Initializable {
-    public Label lblCustomer;
     public Label lblCustomerId;
-    public Label lblName;
     public TextField txtName;
     public Button btnSave;
-    public Label lblContact;
     public TextField txtContact;
     public Button btnReset;
-    public Label lblEmail;
     public TextField txtEmail;
     public Button btnReport;
-    public Label lblAddress;
     public TextField txtAddress;
     public Button btnUpdate;
     public Button btnDelete;
