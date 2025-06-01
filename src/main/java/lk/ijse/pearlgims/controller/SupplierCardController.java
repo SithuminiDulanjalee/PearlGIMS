@@ -1,5 +1,7 @@
 package lk.ijse.pearlgims.controller;
 
+import com.jfoenix.controls.JFXButton;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -12,6 +14,9 @@ import java.io.IOException;
 public class SupplierCardController {
     public Label supplierName;
     public Label lblPhoneNumber;
+    public JFXButton btnDelete;
+    public JFXButton btnUpdate;
+    public JFXButton btnView;
     private SupplierDTO supplier;
 
 
@@ -27,5 +32,14 @@ public class SupplierCardController {
         this.supplier = supplier;
         supplierName.setText(this.supplier.getName());
         lblPhoneNumber.setText(this.supplier.getContact());
+    }
+
+    public void btnViewOnAction(ActionEvent actionEvent) {
+    }
+
+    public void btnUpdateOnAction(ActionEvent actionEvent) {
+    }
+
+    public void btnDeleteOnAction(ActionEvent actionEvent) {
     }
 }

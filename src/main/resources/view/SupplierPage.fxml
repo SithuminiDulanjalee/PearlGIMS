@@ -11,9 +11,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1343.0" style="-fx-background-color: #fae9f5;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pearlgims.controller.SupplierPageController">
+<AnchorPane prefHeight="720.0" prefWidth="1343.0" style="-fx-background-color: #fae9f5;" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pearlgims.controller.SupplierPageController">
    <children>
       <HBox alignment="CENTER" prefHeight="89.0" prefWidth="984.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="360.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -27,7 +28,16 @@
                   <Image url="@../images/suppliergif.gif" />
                </image>
             </ImageView>
-            <TextField prefHeight="36.0" prefWidth="656.0" />
+            <TextField fx:id="txtSearch" onKeyTyped="#txtSearchBarOnAction" prefHeight="36.0" prefWidth="656.0" />
+            <JFXButton onAction="#btnSearchOnAction">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons/search.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
          </children>
       </HBox>
       <AnchorPane layoutX="82.0" layoutY="174.0" prefHeight="631.0" prefWidth="917.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="360.0" AnchorPane.topAnchor="90.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
@@ -45,42 +55,86 @@
       </AnchorPane>
       <AnchorPane layoutX="995.0" layoutY="9.0" prefHeight="708.0" prefWidth="348.0" style="-fx-background-color: #cdd9f0; -fx-background-radius: 20px;" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
          <children>
-            <Label layoutX="13.0" layoutY="9.0" text="Supplier Details">
+            <Label text="Supplier Details">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <ImageView fitHeight="35.0" fitWidth="33.0" layoutX="291.0" layoutY="11.0" onMouseClicked="#iconAddSupplierOnAction" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/addcus&amp;sup.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-            <Label layoutX="19.0" layoutY="251.0" text="Supplier ID">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblSupplierID" layoutX="102.0" layoutY="252.0" text="S001" textFill="#308edf">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <JFXButton fx:id="btnDelete" disable="true" layoutX="219.0" layoutY="648.0" onAction="#btnDeleteOnAction" prefHeight="39.0" prefWidth="114.0" style="-fx-background-color: #F44336; -fx-border-radius: 20;" text="Delete" textFill="WHITE">
-               <font>
-                  <Font name="Segoe UI Semibold" size="16.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </JFXButton>
-            <TextField fx:id="txtCompany" editable="false" layoutX="94.0" layoutY="294.0" prefHeight="39.0" prefWidth="239.0" promptText="N/A" />
-            <TextField fx:id="txtOwner" editable="false" layoutX="95.0" layoutY="352.0" prefHeight="39.0" prefWidth="239.0" promptText="N/A" />
-            <TextField fx:id="txtAddress" editable="false" layoutX="94.0" layoutY="411.0" prefHeight="39.0" prefWidth="239.0" promptText="N/A" />
-            <TextField fx:id="txtPhone" editable="false" layoutX="94.0" layoutY="470.0" prefHeight="39.0" prefWidth="239.0" promptText="N/A" />
-            <JFXButton fx:id="btnAdd" disable="true" layoutX="95.0" layoutY="593.0" onAction="#btnAddOnAction" prefHeight="39.0" prefWidth="239.0" style="-fx-background-color: #308EDF; -fx-border-radius: 20;" text="Add" textFill="WHITE">
+            <VBox layoutX="10.0" layoutY="298.0" prefHeight="200.0" prefWidth="100.0" spacing="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                     <children>
+                        <Label prefWidth="100.0" text="Supplier ID">
+                           <font>
+                              <Font name="SansSerif Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblSupplierID" text="1">
+                           <font>
+                              <Font name="SansSerif Regular" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                     <children>
+                        <Label prefWidth="100.0" text="Name">
+                           <font>
+                              <Font name="SansSerif Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtCompany" editable="false" promptText="Name" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="SansSerif Regular" size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                     <children>
+                        <Label prefWidth="100.0" text="Contact">
+                           <font>
+                              <Font name="SansSerif Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtOwner" editable="false" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="SansSerif Regular" size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                     <children>
+                        <Label prefWidth="100.0" text="Email">
+                           <font>
+                              <Font name="SansSerif Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtAddress" editable="false" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="SansSerif Regular" size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                     <children>
+                        <Label prefWidth="100.0" text="Address">
+                           <font>
+                              <Font name="SansSerif Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtPhone" editable="false" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="SansSerif Regular" size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <JFXButton fx:id="btnAdd" disable="true" layoutX="60.0" layoutY="602.0" onAction="#btnAddOnAction" prefHeight="39.0" prefWidth="239.0" style="-fx-background-color: #308EDF; -fx-border-radius: 20;" text="Add" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Semibold" size="16.0" />
                </font>
@@ -96,34 +150,6 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <Label layoutX="18.0" layoutY="301.0" text="Name">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="16.0" layoutY="361.0" text="Contact">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="15.0" layoutY="420.0" text="Email">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="15.0" layoutY="479.0" text="Address">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <JFXButton fx:id="btnUpdate" disable="true" layoutX="96.0" layoutY="648.0" onAction="#btnUpdateOnAction" prefHeight="39.0" prefWidth="114.0" style="-fx-background-color: #989898; -fx-border-radius: 20;" text="Update" textFill="WHITE">
-               <font>
-                  <Font name="Segoe UI Semibold" size="16.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </JFXButton>
          </children>
       </AnchorPane>
    </children>

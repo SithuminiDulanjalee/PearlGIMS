@@ -1,0 +1,25 @@
+.text-input {
+    -fx-background-color: white;
+    -fx-border-color: transparent;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 10 15;
+    -fx-font-size: 14px;
+    -fx-text-fill: #333;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 4, 0.2, 0, 2);
+    -fx-transition: all 0.2s ease-in-out;
+}
+
+.text-input:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 6, 0.3, 0, 3);
+    -fx-border-color: #b0cdf2;
+}
+
+.text-input:focused {
+    -fx-border-color: #4a90e2;
+    -fx-background-color: #ffffff;
+}
+
+.text-input .text {
+    -fx-fill: #aaaaaa; /* Placeholder text */
+}

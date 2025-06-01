@@ -15,7 +15,7 @@ public class AppInitializer extends Application {
         launch(args);
         try {
             DBConnection.getInstance().getConnection().close();
-            System.out.println("Connection Successfully");
+            System.out.println("Connect Successfully");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -28,7 +28,7 @@ public class AppInitializer extends Application {
         ReferenceUtil.stage=stage;
         stage.setScene(scene);
         stage.setResizable(false);
-        stage.setTitle("Pearl Garment");
+        stage.setTitle("Pearl Garment New");
         stage.show();
     }
 }

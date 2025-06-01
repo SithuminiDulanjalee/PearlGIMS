@@ -1,5 +1,6 @@
 package lk.ijse.pearlgims.controller;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -7,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import lk.ijse.pearlgims.dto.CustomerDTO;
 import lk.ijse.pearlgims.dto.tm.CustomerTM;
@@ -43,6 +45,7 @@ public class CustomerPageController implements Initializable {
 
     private final CustomerModel customerModel = new CustomerModel();
     public ImageView supplierImage;
+    public TextField txtSearch;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -231,9 +234,27 @@ public class CustomerPageController implements Initializable {
         }
     }
 
-    public void btnAddOnAction(ActionEvent actionEvent) {
+
+    public void reload() {
+        Platform.runLater(() -> {
+            try {
+                loadTableData(); // No parameters
+            } catch (Exception e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+                e.printStackTrace();
+            }
+        });
+
+}
+
+    public void txtSearchBarOnAction(KeyEvent keyEvent) {
+        String searchQuery = txtSearch.getText();
+        if (searchQuery.isEmpty()) {
+            reload();
+        }
     }
 
-    public void iconAddSupplierOnAction(MouseEvent mouseEvent) {
+    public void btnSearchOnAction(ActionEvent actionEvent) {
+        reload();
     }
-}
+    }

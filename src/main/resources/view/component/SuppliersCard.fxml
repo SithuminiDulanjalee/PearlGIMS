@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
@@ -7,25 +8,72 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="238.0" maxWidth="202.0" minHeight="169.0" minWidth="178.0" onMouseClicked="#customerCardOnClick" prefHeight="170.0" prefWidth="178.0" style="-fx-background-color: linear-gradient(to bottom, #ffffff 0%, #fafafb 100%); -fx-background-radius: 20px; -fx-border-radius: 20px;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pearlgims.controller.SupplierCardController">
+<AnchorPane maxHeight="238.0" maxWidth="202.0" minHeight="169.0" minWidth="178.0" onMouseClicked="#customerCardOnClick" prefHeight="203.0" prefWidth="178.0" style="-fx-background-color: linear-gradient(to bottom, #ffffff 0%, #fafafb 100%); -fx-background-radius: 20px; -fx-border-radius: 20px;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pearlgims.controller.SupplierCardController">
    <children>
-      <ImageView fitHeight="91.0" fitWidth="114.0" layoutX="43.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../images/supplierss.png" />
-         </image>
-      </ImageView>
-      <Separator layoutX="5.0" layoutY="119.0" prefHeight="3.0" prefWidth="167.0" />
-      <Label fx:id="supplierName" alignment="CENTER" contentDisplay="CENTER" layoutY="130.0" prefHeight="17.0" prefWidth="177.0" text="Anura Perera">
-         <padding>
-            <Insets left="5.0" right="5.0" />
-         </padding>
-      </Label>
-      <Label fx:id="lblPhoneNumber" alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="148.0" prefHeight="17.0" prefWidth="156.0" text="0713465387">
-         <padding>
-            <Insets left="5.0" right="5.0" />
-         </padding>
-      </Label>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0">
+         <children>
+            <ImageView fitHeight="80.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/supplierss.png" />
+               </image>
+            </ImageView>
+            <Separator prefHeight="3.0" prefWidth="167.0" />
+            <VBox>
+               <children>
+                  <Label fx:id="supplierName" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="177.0" text="Anura Perera">
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="lblPhoneNumber" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="156.0" text="0713465387">
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </VBox>
+            <HBox alignment="CENTER">
+               <children>
+                  <JFXButton fx:id="btnView" onAction="#btnViewOnAction">
+                     <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/icons/view.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <JFXButton fx:id="btnUpdate" onAction="#btnUpdateOnAction">
+                     <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/icons/edit.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <JFXButton fx:id="btnDelete" onAction="#btnDeleteOnAction">
+                     <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/icons/delete.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
    </children>
    <cursor>
       <Cursor fx:constant="HAND" />

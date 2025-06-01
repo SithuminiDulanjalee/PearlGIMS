@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -39,6 +40,7 @@ public class SupplierPageController implements Initializable {
     public Label lblCompany;
     public Label lblPhoneNumber;
     public GridPane gridPane;
+    public TextField txtSearch;
 
     SupplierModel supplierModel = new SupplierModel();
 
@@ -59,24 +61,20 @@ public class SupplierPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        gridPane.widthProperty().addListener((obs, oldVal, newVal) -> {
-            try {
-                loadSupplierCards(newVal.doubleValue());
-            } catch (Exception e){
-                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-                e.printStackTrace();
-            }
-        });
+        reload(); // Call  reload
     }
 
-    private void loadSupplierCards(double gridWidth) throws SQLException, ClassNotFoundException {
+    private void loadSupplierCards() throws SQLException, ClassNotFoundException {
+        double gridWidth = gridPane.getWidth(); // Get current width of gridPane
 
-        ArrayList<SupplierDTO> suppliers = supplierModel.getAllSuppliers();
+        String searchQuery = txtSearch.getText();
+
+        ArrayList<SupplierDTO> suppliers = supplierModel.getAllSuppliers(searchQuery);
 
         gridPane.getChildren().clear(); // Clear old cards
 
         try {
-            double cardWidth = 200; // Approximate width of one card (adjust as needed)
+            double cardWidth = 200; // Approximate width of one card
             int columns = Math.max((int)(gridWidth / (cardWidth + 20)), 1); // Ensure at least 1 column
 
             int i = 0;
@@ -95,6 +93,37 @@ public class SupplierPageController implements Initializable {
             }
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void reload() {
+        Platform.runLater(() -> {
+            try {
+                loadSupplierCards(); // No parameters
+            } catch (Exception e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+                e.printStackTrace();
+            }
+        });
+//        gridPane.widthProperty().addListener((obs, oldVal, newVal) -> {
+//            try {
+//                loadSupplierCards(); // No parameters
+//            } catch (Exception e) {
+//                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+//                e.printStackTrace();
+//            }
+//        });
+    }
+
+
+    public void btnSearchOnAction(ActionEvent actionEvent) {
+        reload();
+    }
+
+    public void txtSearchBarOnAction(KeyEvent inputMethodEvent) {
+        String searchQuery = txtSearch.getText();
+        if (searchQuery.isEmpty()) {
+            reload();
         }
     }
 }

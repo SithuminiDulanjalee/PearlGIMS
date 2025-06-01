@@ -9,8 +9,9 @@ import java.util.ArrayList;
 
 public class SupplierModel {
 
-    public ArrayList<SupplierDTO> getAllSuppliers() throws SQLException, ClassNotFoundException {
-        ResultSet result = CrudUtil.execute("SELECT * FROM supplier");
+    public ArrayList<SupplierDTO> getAllSuppliers(String search) throws SQLException, ClassNotFoundException {
+        String searchQuery = "%" + search + "%";
+        ResultSet result = CrudUtil.execute("SELECT * FROM supplier Where name like ?", searchQuery);
         ArrayList<SupplierDTO> supplierList = new ArrayList<>();
         while (result.next()) {
             SupplierDTO supplier = new SupplierDTO(
