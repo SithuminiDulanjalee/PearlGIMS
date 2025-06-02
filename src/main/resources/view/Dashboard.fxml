@@ -126,7 +126,19 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#btnInventoryPageOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fcf3f9;" text="Inventory">
+                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="523.0" mnemonicParsing="false" onAction="#btnReportPageOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fcf3f9;" text="Report">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons/report.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#btnInventoryPageOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fcf3f9;" text="Inventory" visible="false">
                      <font>
                         <Font name="SansSerif Bold" size="14.0" />
                      </font>
@@ -138,7 +150,7 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="382.0" mnemonicParsing="false" onAction="#btnQualityCheckPageOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fcf3f9;" text="Quality Check">
+                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="382.0" mnemonicParsing="false" onAction="#btnQualityCheckPageOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fcf3f9;" text="Quality Check" visible="false">
                      <font>
                         <Font name="SansSerif Bold" size="14.0" />
                      </font>
@@ -150,7 +162,7 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="452.0" mnemonicParsing="false" onAction="#btnPaymentPageOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fcf3f9;" text="Payment">
+                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="452.0" mnemonicParsing="false" onAction="#btnPaymentPageOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fcf3f9;" text="Payment" visible="false">
                      <font>
                         <Font name="SansSerif Bold" size="14.0" />
                      </font>
@@ -158,18 +170,6 @@
                         <ImageView fitHeight="24.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/icons/payment.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="523.0" mnemonicParsing="false" onAction="#btnReportPageOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fcf3f9;" text="Report">
-                     <font>
-                        <Font name="SansSerif Bold" size="14.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="24.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/icons/report.png" />
                            </image>
                         </ImageView>
                      </graphic>

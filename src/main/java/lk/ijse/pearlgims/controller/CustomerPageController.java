@@ -46,6 +46,7 @@ public class CustomerPageController implements Initializable {
     private final CustomerModel customerModel = new CustomerModel();
     public ImageView supplierImage;
     public TextField txtSearch;
+    public Button btnEmail;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -257,4 +258,7 @@ public class CustomerPageController implements Initializable {
     public void btnSearchOnAction(ActionEvent actionEvent) {
         reload();
     }
+
+    public void btnEmailOnAction(ActionEvent actionEvent) {
     }
+}

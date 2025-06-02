@@ -4,6 +4,7 @@ module lk.ijse.pearlgims {
     requires static lombok;
     requires com.jfoenix;
     requires javafx.controls;
+    requires net.sf.jasperreports.core;
 
 
     opens lk.ijse.pearlgims to javafx.fxml;

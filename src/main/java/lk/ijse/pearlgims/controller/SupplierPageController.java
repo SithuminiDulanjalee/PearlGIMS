@@ -39,6 +39,7 @@ public class SupplierPageController implements Initializable {
     public GridPane gridPane;
     public TextField txtSearch;
     public Button btnSave;
+    public Button btnEmail;
 
     SupplierModel supplierModel = new SupplierModel();
 
@@ -126,5 +127,8 @@ public class SupplierPageController implements Initializable {
     }
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
+    }
+
+    public void btnEmailOnAction(ActionEvent actionEvent) {
     }
 }
