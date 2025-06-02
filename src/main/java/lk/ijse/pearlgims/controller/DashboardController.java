@@ -68,4 +68,8 @@ public class DashboardController implements Initializable {
     public void btnReportPageOnAction(ActionEvent actionEvent) {
 navigateTo("/view/component/SuppliersCard.fxml");
     }
+
+    public void btnOrderDetailsPageOnAction(ActionEvent actionEvent) {
+        navigateTo("/view/OrderDetailPage.fxml");
+    }
 }

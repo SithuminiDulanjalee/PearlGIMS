@@ -102,6 +102,18 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" layoutX="20.0" layoutY="187.0" mnemonicParsing="false" onAction="#btnOrderDetailsPageOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fcf3f9;" text="Order Details">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons/orders.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
                   <JFXButton alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#btnSupplierPageOnAction" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fcf3f9;" text="Suppliers">
                      <font>
                         <Font name="SansSerif Bold" size="14.0" />

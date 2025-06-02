@@ -82,7 +82,8 @@ public class OrderPageController implements Initializable {
     }
 
     public void cmdSizeOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-
+        String selectedSize = cmbSize.getSelectionModel().getSelectedItem();
+        ProductDTO productDTO = productModel.findById(selectedSize);
     }
 
     public void btnAddToOrdersOnAction(ActionEvent actionEvent) {
@@ -172,6 +173,7 @@ public class OrderPageController implements Initializable {
         String orderId = lblOrderId.getText();
         Date dateOfOrder = Date.valueOf(lblOrderDate.getText());
 
+
         ArrayList<OrderItemDTO> orderItemList = new ArrayList<>();
 
         for (OrderTM orderTM : orderData) {
@@ -195,7 +197,7 @@ public class OrderPageController implements Initializable {
 //        orderDetail -> {orderId, itemId, qty, price}
         try {
             boolean isSaved = ordersModel.placeOrder(ordersDTO);
-
+            System.out.println(isSaved);
             if (isSaved) {
                 refreshPage();
                 new Alert(Alert.AlertType.INFORMATION, "Order saved").show();
@@ -206,7 +208,7 @@ public class OrderPageController implements Initializable {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR, "Order fail..!").show();
+            new Alert(Alert.AlertType.ERROR, "Order fail..!"+e.getMessage()).show();
         }
     }
 

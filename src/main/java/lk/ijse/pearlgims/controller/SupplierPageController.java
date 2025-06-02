@@ -6,10 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -41,6 +38,7 @@ public class SupplierPageController implements Initializable {
     public Label lblPhoneNumber;
     public GridPane gridPane;
     public TextField txtSearch;
+    public Button btnSave;
 
     SupplierModel supplierModel = new SupplierModel();
 
@@ -125,5 +123,8 @@ public class SupplierPageController implements Initializable {
         if (searchQuery.isEmpty()) {
             reload();
         }
+    }
+
+    public void btnSaveOnAction(ActionEvent actionEvent) {
     }
 }

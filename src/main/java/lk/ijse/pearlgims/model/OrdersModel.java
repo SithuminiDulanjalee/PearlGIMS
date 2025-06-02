@@ -36,9 +36,12 @@ public class OrdersModel {
                     ordersDTO.getCustomerId(),
                     ordersDTO.getOrderDate()
             );
+            System.out.println("isOrderSave = " + isOrderSave);
 
             if (isOrderSave) {
                 boolean isOrderDetailsSaved = orderItemModel.saveOrderDetailsList(ordersDTO.getOrderItems());
+                System.out.println("isOrderDetailsSaved = " + isOrderDetailsSaved);
+                System.out.println("isOrderSave = " + isOrderSave);
                 if (isOrderDetailsSaved) {
                     connection.commit();
                     return true;
@@ -48,7 +51,7 @@ public class OrdersModel {
             return false;
         } catch (Exception e) {
             connection.rollback();
-            return false;
+            throw new RuntimeException(e);
         } finally {
             connection.setAutoCommit(true);
         }

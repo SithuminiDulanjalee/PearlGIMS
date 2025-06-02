@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -54,7 +57,7 @@
                               </ImageView>
                            </children>
                         </Pane>
-                        <TableView fx:id="tblProduct" onMouseClicked="#onClickCustomerTable" prefHeight="656.0" prefWidth="592.0">
+                        <TableView fx:id="tblProduct" onMouseClicked="#onClickProductTable" prefHeight="656.0" prefWidth="592.0">
                            <columns>
                               <TableColumn fx:id="colProductId" prefWidth="75.0" text="Product Id" />
                               <TableColumn fx:id="colName" prefWidth="75.0" text="Name" />
@@ -159,11 +162,14 @@
                                           <Font name="SansSerif Bold" size="16.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="txtStatus" HBox.hgrow="ALWAYS">
-                                       <font>
-                                          <Font name="SansSerif Regular" size="14.0" />
-                                       </font>
-                                    </TextField>
+                                    <ComboBox fx:id="cmbStatus" onAction="#cmbStatusOnAction" prefWidth="150.0">
+                                       <items>
+                                          <FXCollections fx:factory="observableArrayList">
+                                             <String fx:value="AVAILABLE" />
+                                             <String fx:value="OUT OF STOCK" />
+                                          </FXCollections>
+                                       </items>
+                                    </ComboBox>
                                  </children>
                               </HBox>
                               <HBox layoutX="10.0" layoutY="78.0" spacing="10.0">
@@ -173,11 +179,17 @@
                                           <Font name="SansSerif Bold" size="16.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="txtSize" prefHeight="38.0" prefWidth="211.0">
-                                       <font>
-                                          <Font name="SansSerif Regular" size="14.0" />
-                                       </font>
-                                    </TextField>
+                                    <ComboBox fx:id="cmbSize" onAction="#cmbSizeOnAction" prefWidth="150.0">
+                                       <items>
+                                          <FXCollections fx:factory="observableArrayList">
+                                             <String fx:value="S" />
+                                             <String fx:value="M" />
+                                             <String fx:value="L" />
+                                             <String fx:value="XL" />
+                                             <String fx:value="XXL" />
+                                          </FXCollections>
+                                       </items>
+                                    </ComboBox>
                                  </children>
                               </HBox>
                            </children>

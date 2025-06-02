@@ -1,19 +1,32 @@
 package lk.ijse.pearlgims.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import lk.ijse.pearlgims.dto.ProductDTO;
+import lk.ijse.pearlgims.dto.tm.ProductTM;
+import lk.ijse.pearlgims.model.ProductModel;
 
-public class ProductPageController {
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Optional;
+import java.util.ResourceBundle;
+
+public class ProductPageController implements Initializable {
     public TextField txtSearch;
-    public TableView tblProduct;
-    public TableColumn colProductId;
-    public TableColumn colName;
-    public TableColumn colPrice;
-    public TableColumn colQty;
-    public TableColumn colStatus;
-    public TableColumn colSize;
+    public TableView<ProductTM> tblProduct;
+    public TableColumn<ProductTM,String> colProductId;
+    public TableColumn<ProductTM,String> colName;
+    public TableColumn<ProductTM,Double> colPrice;
+    public TableColumn<ProductTM,Integer> colQty;
+    public TableColumn<ProductTM,String> colStatus;
+    public TableColumn<ProductTM,String> colSize;
     public Label lblProductId;
     public TextField txtName;
     public TextField txtPrice;
@@ -23,8 +36,11 @@ public class ProductPageController {
     public Button btnDelete;
     public Button btnReport;
     public Button btnReset;
-    public TextField txtStatus;
-    public TextField txtSize;
+    public ComboBox<String> cmbSize;
+    public ComboBox<String> cmbStatus;
+
+
+    private final ProductModel productModel = new ProductModel();
 
     public void txtSearchBarOnAction(KeyEvent keyEvent) {
     }
@@ -32,21 +48,203 @@ public class ProductPageController {
     public void btnSearchOnAction(ActionEvent actionEvent) {
     }
 
-    public void onClickCustomerTable(MouseEvent mouseEvent) {
-    }
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
+        String productId = lblProductId.getText();
+        String name = txtName.getText();
+        String priceDouble = txtPrice.getText();
+        double price = Double.parseDouble(priceDouble);
+        String quantity = txtQty.getText();
+        int qty = Integer.parseInt(quantity);
+        String selectedStatus = cmbStatus.getSelectionModel().getSelectedItem();
+        if(selectedStatus == null){
+            new Alert(Alert.AlertType.WARNING, "Please select status..!").show();
+        }
+        String selectedSize = cmbSize.getSelectionModel().getSelectedItem();
+        if(selectedSize == null){
+            new Alert(Alert.AlertType.WARNING, "Please select size..!").show();
+        }
+
+        ProductDTO productDTO = new ProductDTO(
+                productId,
+                name,
+                price,
+                qty,
+                selectedStatus,
+                selectedSize
+        );
+
+            try {
+                boolean isSaved = productModel.saveProduct(productDTO);
+
+                if (isSaved) {
+                    resetPage();
+                    new Alert(Alert.AlertType.INFORMATION, "Product saved successfully").show();
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "Fail to save product").show();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            }
+
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
+        String productIdUpdate = lblProductId.getText();
+        String nameUpdate = txtName.getText();
+        String priceDoubleUpdate = txtPrice.getText();
+        double priceUpdate = Double.parseDouble(priceDoubleUpdate);
+        String quantityUpdate = txtQty.getText();
+        int qtyUpdate = Integer.parseInt(quantityUpdate);
+        String selectedStatusUpdate = cmbStatus.getSelectionModel().getSelectedItem();
+        if(selectedStatusUpdate == null){
+            new Alert(Alert.AlertType.WARNING, "Please select status..!").show();
+        }
+        String selectedSizeUpdate = cmbSize.getSelectionModel().getSelectedItem();
+        if(selectedSizeUpdate == null){
+            new Alert(Alert.AlertType.WARNING, "Please select size..!").show();
+        }
+
+        ProductDTO productDTO = new ProductDTO(
+                productIdUpdate,
+                nameUpdate,
+                priceUpdate,
+                qtyUpdate,
+                selectedStatusUpdate,
+                selectedSizeUpdate
+        );
+        try {
+            boolean isUpdated = productModel.updateProduct(productDTO);
+
+            if (isUpdated) {
+                resetPage();
+                new Alert(Alert.AlertType.INFORMATION, "Product updated successfully").show();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Fail to update product").show();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Fail").show();
+        }
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
+        Alert alert = new Alert(
+                Alert.AlertType.CONFIRMATION,
+                "Are you sure ?",
+                ButtonType.YES,
+                ButtonType.NO
+        );
+
+        Optional<ButtonType> response = alert.showAndWait();
+
+        if (response.isPresent() && response.get() == ButtonType.YES) {
+            String productID = lblProductId.getText();
+            try {
+                boolean isDeleted = productModel.deleteProduct(productID);
+
+                if (isDeleted) {
+                    resetPage();
+                    new Alert(Alert.AlertType.INFORMATION, "Product deleted successfully").show();
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "Fail to delete product").show();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                new Alert(Alert.AlertType.ERROR, "Fail").show();
+            }
+        }
     }
 
     public void btnReportOnAction(ActionEvent actionEvent) {
     }
 
     public void btnResetOnAction(ActionEvent actionEvent) {
+        resetPage();
+    }
+
+    public void cmbSizeOnAction(ActionEvent actionEvent) {
+    }
+
+    public void cmbStatusOnAction(ActionEvent actionEvent) {
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        colProductId.setCellValueFactory(new PropertyValueFactory<>("productId"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+        colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
+        colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+        colSize.setCellValueFactory(new PropertyValueFactory<>("size"));
+
+        try{
+            resetPage();
+        }catch (Exception e){
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR,"Something went wrong").show();
+        }
+    }
+
+    public void onClickProductTable(MouseEvent mouseEvent) {
+        ProductTM selectedItem = tblProduct.getSelectionModel().getSelectedItem();
+
+        if(selectedItem != null){
+            lblProductId.setText(selectedItem.getProductId());
+            txtName.setText(selectedItem.getName());
+            txtPrice.setText(String.valueOf(selectedItem.getPrice()));
+            txtQty.setText(String.valueOf(selectedItem.getQty()));
+            cmbStatus.getSelectionModel().select(selectedItem.getStatus());
+            cmbSize.getSelectionModel().select(selectedItem.getSize());
+        }
+
+        btnSave.setDisable(true);
+        btnUpdate.setDisable(false);
+        btnDelete.setDisable(false);
+    }
+
+    private void loadTableData() throws SQLException, ClassNotFoundException {
+        ArrayList<ProductDTO> productDTOArrayList = productModel.getAllProducts();
+        ObservableList<ProductTM> productTMS = FXCollections.observableArrayList();
+
+        for (ProductDTO productDTO : productDTOArrayList){
+            ProductTM productTM = new ProductTM(
+                    productDTO.getProductId(),
+                    productDTO.getName(),
+                    productDTO.getPrice(),
+                    productDTO.getQty(),
+                    productDTO.getStatus(),
+                    productDTO.getSize());
+            productTMS.add(productTM);
+        }
+        tblProduct.setItems(productTMS);
+
+    }
+
+    private void loadNextId() throws SQLException, ClassNotFoundException {
+        String nextId = productModel.getNextProductId();
+        lblProductId.setText(nextId);
+    }
+
+    private void resetPage(){
+        try {
+            loadTableData();
+            loadNextId();
+
+            btnSave.setDisable(false);
+            btnDelete.setDisable(true);
+            btnUpdate.setDisable(true);
+
+            txtName.clear();
+            txtPrice.clear();
+            txtQty.clear();
+            cmbStatus.getSelectionModel().clearSelection();
+            cmbSize.getSelectionModel().clearSelection();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR,"Somthing went wrong..").show();
+        }
     }
 }
