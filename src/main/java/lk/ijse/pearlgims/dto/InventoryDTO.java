@@ -10,7 +10,6 @@ import lombok.*;
 public class InventoryDTO {
     private String inventoryId;
     private String name;
-    private String userId;
     private String supplierId;
     private String date;
 

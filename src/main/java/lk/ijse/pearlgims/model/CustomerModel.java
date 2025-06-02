@@ -59,4 +59,26 @@ public class CustomerModel {
     public boolean deleteCustomer(String customerID) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute("delete from customer where customer_id=?",customerID);
     }
+
+    public ArrayList<String> getAllCustomerIds() throws SQLException, ClassNotFoundException {
+        ResultSet rst = CrudUtil.execute("select customer_id from customer");
+        ArrayList<String> list = new ArrayList<>();
+        while (rst.next()) {
+            String id = rst.getString(1);
+            list.add(id);
+        }
+        return list;
+    }
+
+    public String findNameById(String selectedCustomerId) throws SQLException, ClassNotFoundException {
+        ResultSet rst = CrudUtil.execute(
+                "select name from customer where customer_id=?",
+                selectedCustomerId
+        );
+
+        if (rst.next()) {
+            return rst.getString(1);
+        }
+        return null;
+    }
 }

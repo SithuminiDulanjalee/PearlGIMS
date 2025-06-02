@@ -18,13 +18,13 @@ public class ProductPageController {
     public TextField txtName;
     public TextField txtPrice;
     public TextField txtQty;
-    public ComboBox cmbStatus;
-    public ComboBox cmbSize;
     public Button btnSave;
     public Button btnUpdate;
     public Button btnDelete;
     public Button btnReport;
     public Button btnReset;
+    public TextField txtStatus;
+    public TextField txtSize;
 
     public void txtSearchBarOnAction(KeyEvent keyEvent) {
     }
@@ -33,12 +33,6 @@ public class ProductPageController {
     }
 
     public void onClickCustomerTable(MouseEvent mouseEvent) {
-    }
-
-    public void cmbStatusOnAction(ActionEvent actionEvent) {
-    }
-
-    public void cmbSizeOnAction(ActionEvent actionEvent) {
     }
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
