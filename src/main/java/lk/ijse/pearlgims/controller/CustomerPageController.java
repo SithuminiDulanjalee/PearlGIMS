@@ -254,7 +254,7 @@ public class CustomerPageController implements Initializable {
         }
     }
 
-    public void btnSearchOnAction(ActionEvent actionEvent) {
+    public void btnSearchOnAction(MouseEvent actionEvent) {
         reload();
     }
     }

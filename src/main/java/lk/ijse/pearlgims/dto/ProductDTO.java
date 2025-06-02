@@ -13,4 +13,6 @@ public class ProductDTO {
     private double price;
     private int qty;
     private String status;
+    private String size;
+
 }

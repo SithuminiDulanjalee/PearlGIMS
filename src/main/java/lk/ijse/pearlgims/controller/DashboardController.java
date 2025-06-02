@@ -30,6 +30,7 @@ public class DashboardController implements Initializable {
     }
 
     public void btnOrderPageOnAction(ActionEvent actionEvent) {
+        navigateTo("/view/OrderPage.fxml");
     }
 
     private void navigateTo(String path){
