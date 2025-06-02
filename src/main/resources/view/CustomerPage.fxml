@@ -41,7 +41,7 @@
                               <TextField fx:id="txtSearch" layoutX="244.0" layoutY="27.0" onKeyTyped="#txtSearchBarOnAction" prefHeight="36.0" prefWidth="656.0" />
                               <JFXButton layoutX="900.0" layoutY="32.0" onAction="#btnSearchOnAction">
                                  <graphic>
-                                    <ImageView fitHeight="25.0" fitWidth="25.0" onDragDetected="#btnSearchOnAction" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../images/icons/search.png" />
                                        </image>

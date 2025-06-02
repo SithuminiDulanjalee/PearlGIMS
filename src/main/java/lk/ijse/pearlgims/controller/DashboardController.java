@@ -56,6 +56,7 @@ public class DashboardController implements Initializable {
     }
 
     public void btnProductPageOnAction(ActionEvent actionEvent) {
+        navigateTo("/view/ProductPage.fxml");
     }
 
     public void btnQualityCheckPageOnAction(ActionEvent actionEvent) {
