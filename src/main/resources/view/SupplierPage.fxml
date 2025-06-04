@@ -92,11 +92,7 @@
                               <Font name="SansSerif Bold" size="16.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtCompany" editable="false" promptText="Name" HBox.hgrow="ALWAYS">
-                           <font>
-                              <Font name="SansSerif Regular" size="14.0" />
-                           </font>
-                        </TextField>
+                        <TextField fx:id="txtName" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" spacing="10.0">
@@ -106,25 +102,7 @@
                               <Font name="SansSerif Bold" size="16.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtOwner" editable="false" HBox.hgrow="ALWAYS">
-                           <font>
-                              <Font name="SansSerif Regular" size="14.0" />
-                           </font>
-                        </TextField>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" spacing="10.0">
-                     <children>
-                        <Label prefWidth="100.0" text="Email">
-                           <font>
-                              <Font name="SansSerif Bold" size="16.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtAddress" editable="false" HBox.hgrow="ALWAYS">
-                           <font>
-                              <Font name="SansSerif Regular" size="14.0" />
-                           </font>
-                        </TextField>
+                        <TextField fx:id="txtContact" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" spacing="10.0">
@@ -134,15 +112,40 @@
                               <Font name="SansSerif Bold" size="16.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtPhone" editable="false" HBox.hgrow="ALWAYS">
+                        <TextField fx:id="txtAddress" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                     <children>
+                        <Label prefWidth="100.0" text="Email">
                            <font>
-                              <Font name="SansSerif Regular" size="14.0" />
+                              <Font name="SansSerif Bold" size="16.0" />
                            </font>
-                        </TextField>
+                        </Label>
+                        <TextField fx:id="txtEmail" />
                      </children>
                   </HBox>
                </children>
             </VBox>
+            <HBox alignment="CENTER" layoutX="56.0" layoutY="620.0" spacing="10.0">
+               <children>
+                  <Button fx:id="btnSave" onAction="#btnSaveOnAction" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: #772450;" text="Save" textFill="WHITE">
+                     <font>
+                        <Font name="SansSerif Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnEmail" onAction="#btnEmailOnAction" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: #772450;" text="Email" textFill="WHITE">
+                     <font>
+                        <Font name="SansSerif Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnUpdate" onAction="#btnUpdateOnAction" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: #772450;" text="Update" textFill="WHITE">
+                     <font>
+                        <Font name="SansSerif Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
             <ImageView fx:id="supplierImage" fitHeight="145.0" fitWidth="145.0" layoutX="107.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/supplierss.png" />
@@ -151,16 +154,6 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <Button fx:id="btnSave" layoutX="81.0" layoutY="620.0" onAction="#btnSaveOnAction" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: #772450;" text="Save" textFill="WHITE">
-               <font>
-                  <Font name="SansSerif Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnEmail" layoutX="199.0" layoutY="620.0" onAction="#btnEmailOnAction" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: #772450;" text="Email" textFill="WHITE">
-               <font>
-                  <Font name="SansSerif Bold" size="12.0" />
-               </font>
-            </Button>
          </children>
       </AnchorPane>
    </children>

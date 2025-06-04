@@ -26,4 +26,33 @@ public class SupplierModel {
         return supplierList;
     }
 
+    public boolean saveSupplier(SupplierDTO supplierDTO) throws SQLException, ClassNotFoundException {
+        String sql = "INSERT INTO supplier VALUES (?,?,?,?,?)";
+        return CrudUtil.execute(sql, supplierDTO.getSupplierID(), supplierDTO.getName(), supplierDTO.getContact(), supplierDTO.getEmail(), supplierDTO.getAddress());
+    }
+
+    public boolean updateSupplier(SupplierDTO supplierDTO) throws SQLException, ClassNotFoundException {
+        String sql = "UPDATE supplier SET name = ?, contact = ?, email = ?, address = ? WHERE supplier_id = ?";
+        return CrudUtil.execute(sql, supplierDTO.getName(), supplierDTO.getContact(), supplierDTO.getEmail(), supplierDTO.getAddress(), supplierDTO.getSupplierID());
+    }
+
+    public boolean deleteSupplier(String supplierID) throws SQLException, ClassNotFoundException {
+        String sql = "DELETE FROM supplier WHERE supplier_id = ?";
+        return CrudUtil.execute(sql, supplierID);
+    }
+
+    public String getNextSupplierId() throws SQLException, ClassNotFoundException {
+        ResultSet resultSet = CrudUtil.execute("select supplier_id from supplier order by supplier_id desc limit 1");
+
+        if(resultSet.next()){
+            String lastId = resultSet.getString(1);
+            String lastIdNumberString = lastId.substring(1);
+            int lastIdNumber = Integer.parseInt(lastIdNumberString);
+            int nextIdNumber = lastIdNumber+1;
+
+            String nextIdString = String.format("S%03d",nextIdNumber);
+            return nextIdString;
+        }
+        return "S001";
+    }
 }

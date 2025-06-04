@@ -183,15 +183,15 @@
                                        </font>
                                     </Label>
                                     <ComboBox fx:id="cmbSize" onAction="#cmdSizeOnAction" prefWidth="150.0">
-                                    <items>
-                                       <FXCollections fx:factory="observableArrayList">
-                                          <String fx:value="S"/>
-                                          <String fx:value="M"/>
-                                          <String fx:value="L"/>
-                                          <String fx:value="XL"/>
-                                          <String fx:value="XXL"/>
-                                       </FXCollections>
-                                    </items>
+                                       <items>
+                                          <FXCollections fx:factory="observableArrayList">
+                                             <String fx:value="S" />
+                                             <String fx:value="M" />
+                                             <String fx:value="L" />
+                                             <String fx:value="XL" />
+                                             <String fx:value="XXL" />
+                                          </FXCollections>
+                                       </items>
                                  </ComboBox>
                                  </children>
                               </HBox>

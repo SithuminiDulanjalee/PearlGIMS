@@ -72,4 +72,8 @@ public class DashboardController implements Initializable {
     public void btnOrderDetailsPageOnAction(ActionEvent actionEvent) {
         navigateTo("/view/OrderDetailPage.fxml");
     }
+
+    public void btnRawMaterialOnAction(ActionEvent actionEvent) {
+        navigateTo("/view/RawMaterialPage.fxml");
+    }
 }
