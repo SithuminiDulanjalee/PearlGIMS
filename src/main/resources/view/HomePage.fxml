@@ -88,5 +88,10 @@
             <Font name="Cambria Bold" size="22.0" />
          </font>
       </Label>
+      <ImageView fitHeight="65.0" fitWidth="82.0" layoutX="104.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/home.gif" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
