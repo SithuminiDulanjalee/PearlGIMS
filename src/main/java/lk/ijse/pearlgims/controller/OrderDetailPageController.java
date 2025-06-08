@@ -29,6 +29,7 @@ public class OrderDetailPageController implements Initializable {
     public TableColumn<OrderDetailTM, Integer> colTotalProductQuantity;
     public TableColumn<?,?> colAction;
 
+
     private final OrderDetailModel orderDetailModel = new OrderDetailModel();
 
     public void btnSearchOnAction(ActionEvent actionEvent) {

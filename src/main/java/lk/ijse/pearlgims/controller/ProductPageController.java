@@ -39,30 +39,56 @@ public class ProductPageController implements Initializable {
     public ComboBox<String> cmbSize;
     public ComboBox<String> cmbStatus;
 
-
     private final ProductModel productModel = new ProductModel();
 
     public void txtSearchBarOnAction(KeyEvent keyEvent) {
     }
 
     public void btnSearchOnAction(ActionEvent actionEvent) {
+        String searchText = txtSearch.getText().trim();
+        ObservableList<ProductTM> filteredList = FXCollections.observableArrayList();
+
+        for (ProductTM product : tblProduct.getItems()) {
+            if (product.getProductId().contains(searchText) || product.getName().contains(searchText)) {
+                filteredList.add(product);
+            }
+        }
+
+        tblProduct.setItems(filteredList);
     }
 
-
     public void btnSaveOnAction(ActionEvent actionEvent) {
+        String name = txtName.getText().trim();
+        String priceDouble = txtPrice.getText().trim();
+        String quantity = txtQty.getText().trim();
+
+        if (!name.matches("^[A-Za-z ]+$")) {
+            new Alert(Alert.AlertType.WARNING, "Please enter a valid product name..!").show();
+            return;
+        }
+
+        if (!priceDouble.matches("\\d+(\\.\\d+)?")) {
+            new Alert(Alert.AlertType.WARNING, "Please enter a valid price..!").show();
+            return;
+        }
+
+        if (!quantity.matches("\\d+")) {
+            new Alert(Alert.AlertType.WARNING, "Please enter a valid quantity..!").show();
+            return;
+        }
+
         String productId = lblProductId.getText();
-        String name = txtName.getText();
-        String priceDouble = txtPrice.getText();
         double price = Double.parseDouble(priceDouble);
-        String quantity = txtQty.getText();
         int qty = Integer.parseInt(quantity);
         String selectedStatus = cmbStatus.getSelectionModel().getSelectedItem();
         if(selectedStatus == null){
             new Alert(Alert.AlertType.WARNING, "Please select status..!").show();
+            return;
         }
         String selectedSize = cmbSize.getSelectionModel().getSelectedItem();
         if(selectedSize == null){
             new Alert(Alert.AlertType.WARNING, "Please select size..!").show();
+            return;
         }
 
         ProductDTO productDTO = new ProductDTO(
@@ -74,36 +100,53 @@ public class ProductPageController implements Initializable {
                 selectedSize
         );
 
-            try {
-                boolean isSaved = productModel.saveProduct(productDTO);
+        try {
+            boolean isSaved = productModel.saveProduct(productDTO);
 
-                if (isSaved) {
-                    resetPage();
-                    new Alert(Alert.AlertType.INFORMATION, "Product saved successfully").show();
-                } else {
-                    new Alert(Alert.AlertType.ERROR, "Fail to save product").show();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            if (isSaved) {
+                resetPage();
+                new Alert(Alert.AlertType.INFORMATION, "Product saved successfully").show();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Fail to save product").show();
             }
-
+        } catch (Exception e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
+        String nameUpdate = txtName.getText().trim();
+        String priceDoubleUpdate = txtPrice.getText().trim();
+        String quantityUpdate = txtQty.getText().trim();
+
+        if (!nameUpdate.matches("^[A-Za-z ]+$")) {
+            new Alert(Alert.AlertType.WARNING, "Please enter a valid product name..!").show();
+            return;
+        }
+
+        if (!priceDoubleUpdate.matches("\\d+(\\.\\d+)?")) {
+            new Alert(Alert.AlertType.WARNING, "Please enter a valid price..!").show();
+            return;
+        }
+
+        if (!quantityUpdate.matches("\\d+")) {
+            new Alert(Alert.AlertType.WARNING, "Please enter a valid quantity..!").show();
+            return;
+        }
+
         String productIdUpdate = lblProductId.getText();
-        String nameUpdate = txtName.getText();
-        String priceDoubleUpdate = txtPrice.getText();
         double priceUpdate = Double.parseDouble(priceDoubleUpdate);
-        String quantityUpdate = txtQty.getText();
         int qtyUpdate = Integer.parseInt(quantityUpdate);
         String selectedStatusUpdate = cmbStatus.getSelectionModel().getSelectedItem();
         if(selectedStatusUpdate == null){
             new Alert(Alert.AlertType.WARNING, "Please select status..!").show();
+            return;
         }
         String selectedSizeUpdate = cmbSize.getSelectionModel().getSelectedItem();
         if(selectedSizeUpdate == null){
             new Alert(Alert.AlertType.WARNING, "Please select size..!").show();
+            return;
         }
 
         ProductDTO productDTO = new ProductDTO(
@@ -219,7 +262,6 @@ public class ProductPageController implements Initializable {
             productTMS.add(productTM);
         }
         tblProduct.setItems(productTMS);
-
     }
 
     private void loadNextId() throws SQLException, ClassNotFoundException {
@@ -244,7 +286,7 @@ public class ProductPageController implements Initializable {
 
         } catch (Exception e) {
             e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR,"Somthing went wrong..").show();
+            new Alert(Alert.AlertType.ERROR,"Something went wrong..").show();
         }
     }
 }

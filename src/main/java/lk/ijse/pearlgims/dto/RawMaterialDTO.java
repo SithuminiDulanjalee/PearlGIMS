@@ -12,4 +12,9 @@ public class RawMaterialDTO {
     private String materialName;
     private double price;
     private int qty;
+
+    public RawMaterialDTO(String materialId, String materialName) {
+        this.materialId = materialId;
+        this.materialName = materialName;
+    }
 }

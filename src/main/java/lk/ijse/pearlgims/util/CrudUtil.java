@@ -12,21 +12,34 @@ public class CrudUtil {
         Connection connection = DBConnection.getInstance().getConnection();
         PreparedStatement pst = connection.prepareStatement(sql);
 
+        // Bind parameters
         for (int i = 0; i < obj.length; i++) {
             pst.setObject(i + 1, obj[i]);
         }
 
-        if (sql.startsWith("select") || sql.startsWith("SELECT")) {
-
+        // Run query or update
+        if (sql.trim().toLowerCase().startsWith("select")) {
             ResultSet resultSet = pst.executeQuery();
-
             return (T) resultSet;
         } else {
-            int i = pst.executeUpdate();
-
-            boolean isSuccess = i > 0;
-
-            return (T) (Boolean) isSuccess;
+            int affectedRows = pst.executeUpdate();
+            return (T) (Boolean) (affectedRows > 0);
         }
+    }
+
+    // Helper to simulate substituted SQL (for logging/debugging only)
+    private static String formatSqlWithParams(String sql, Object... params) {
+        for (Object param : params) {
+            String value;
+            if (param == null) {
+                value = "NULL";
+            } else if (param instanceof String || param instanceof java.util.Date) {
+                value = "'" + param.toString().replace("'", "''") + "'";
+            } else {
+                value = param.toString();
+            }
+            sql = sql.replaceFirst("\\?", value);
+        }
+        return sql;
     }
 }

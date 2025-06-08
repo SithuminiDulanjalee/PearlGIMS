@@ -8,6 +8,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.pearlgims.dto.SupplierDTO;
 import lk.ijse.pearlgims.util.DialogUtil;
+import lk.ijse.pearlgims.util.EmailUtil;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -38,7 +39,7 @@ public class SupplierCardController {
         AnchorPane pane = loader.load();
         SupplierCardDialogController supplierCardDialogController = loader.getController();
         supplierCardDialogController.setData(supplier);
-        DialogUtil.showCustom("Supplier Details", "",pane , "Send Mail", "Cancel", ()->System.out.println("clock cansal"), ()->System.out.println("clock cansal"));
+        DialogUtil.showCustom("Supplier Details", "",pane , "Send Mail", "Cancel", ()-> EmailUtil.sendEmail(supplier.getEmail(),"sendMail","hdhdhdhdh"), ()-> System.out.println("clock cansal"));
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {

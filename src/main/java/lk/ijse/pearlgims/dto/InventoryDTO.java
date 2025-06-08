@@ -2,6 +2,9 @@ package lk.ijse.pearlgims.dto;
 
 import lombok.*;
 
+import java.sql.Date;
+import java.util.ArrayList;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -11,6 +14,7 @@ public class InventoryDTO {
     private String inventoryId;
     private String name;
     private String supplierId;
-    private String date;
+    private Date date;
+    private ArrayList<InventoryDetailDTO> inventoryDetails;
 
 }

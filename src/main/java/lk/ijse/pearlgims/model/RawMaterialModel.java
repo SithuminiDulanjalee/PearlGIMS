@@ -96,4 +96,17 @@ public class RawMaterialModel {
     public boolean deleteRawMaterial(String rawMaterialId) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute("delete from raw_material where material_id=?",rawMaterialId);
     }
+
+    public ArrayList<RawMaterialDTO> loadRawMaterials() throws SQLException, ClassNotFoundException {
+        ResultSet result = CrudUtil.execute("SELECT material_id,material_name FROM raw_material");
+        ArrayList<RawMaterialDTO> rawMaterialList = new ArrayList<>();
+        while (result.next()) {
+            RawMaterialDTO rawMaterial = new RawMaterialDTO(
+                    result.getString(1),
+                    result.getString(2)
+            );
+            rawMaterialList.add(rawMaterial);
+        }
+        return rawMaterialList;
+    }
 }

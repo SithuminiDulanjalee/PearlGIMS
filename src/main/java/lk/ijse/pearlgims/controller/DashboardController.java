@@ -8,7 +8,6 @@ import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.function.BooleanSupplier;
 
 public class DashboardController implements Initializable {
     public AnchorPane ancMainContainer;
@@ -26,6 +25,7 @@ public class DashboardController implements Initializable {
     }
 
     public void btnInventoryPageOnAction(ActionEvent actionEvent) {
+        navigateTo("/view/InventoryPage.fxml");
         
     }
 
@@ -75,5 +75,10 @@ public class DashboardController implements Initializable {
 
     public void btnRawMaterialOnAction(ActionEvent actionEvent) {
         navigateTo("/view/RawMaterialPage.fxml");
+    }
+
+    public void btnProductionOnAction(ActionEvent actionEvent) {
+        navigateTo("/view/ProductionPage.fxml");
+
     }
 }

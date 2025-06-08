@@ -46,7 +46,7 @@ public class OrderPageController implements Initializable {
     private final CustomerModel customerModel = new CustomerModel();
     private final ProductModel productModel = new ProductModel();
 
-    private final ObservableList<OrderTM> orderData = FXCollections.observableArrayList();
+    private final static ObservableList<OrderTM> orderData = FXCollections.observableArrayList();
     public TableColumn<OrderTM,String> colSize;
 
     public void txtSearchBarOnAction(KeyEvent keyEvent) {
@@ -242,12 +242,11 @@ public class OrderPageController implements Initializable {
 
     private void refreshPage() throws SQLException, ClassNotFoundException {
         lblOrderId.setText(ordersModel.getNextOrderId());
-
         lblOrderDate.setText(LocalDate.now().toString());
-
         loadCustomerIds();
         loadProductIds();
         loadProductSizes();
+        orderData.clear();
     }
 
     private void loadProductIds() throws SQLException, ClassNotFoundException {

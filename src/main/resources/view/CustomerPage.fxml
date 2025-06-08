@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -18,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1343.0" style="-fx-background-color: #fae9f5;" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pearlgims.controller.CustomerPageController">
+<AnchorPane prefHeight="720.0" prefWidth="1343.0" style="-fx-background-color: #fae9f5;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pearlgims.controller.CustomerPageController">
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -38,8 +39,8 @@
                                     <Image url="@../images/customergif.gif" />
                                  </image>
                               </ImageView>
-                              <TextField fx:id="txtSearch" layoutX="244.0" layoutY="27.0" onKeyTyped="#txtSearchBarOnAction" prefHeight="36.0" prefWidth="656.0" />
-                              <JFXButton layoutX="900.0" layoutY="32.0" onAction="#btnSearchOnAction">
+                              <TextField fx:id="txtSearch" layoutX="244.0" layoutY="27.0" onKeyTyped="#txtSearchBarOnAction" prefHeight="42.0" prefWidth="648.0" />
+                              <JFXButton layoutX="890.0" layoutY="37.0" onAction="#btnSearchOnAction">
                                  <graphic>
                                     <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -50,7 +51,7 @@
                               </JFXButton>
                            </children>
                         </Pane>
-                        <TableView fx:id="tblCustomer" onMouseClicked="#onClickCustomerTable" prefHeight="656.0" prefWidth="592.0">
+                        <TableView fx:id="tblCustomer" onMouseClicked="#onClickCustomerTable" prefHeight="656.0" prefWidth="592.0" VBox.vgrow="ALWAYS">
                           <columns>
                             <TableColumn fx:id="colCustomerId" prefWidth="75.0" text="Customer ID" />
                             <TableColumn fx:id="colName" prefWidth="75.0" text="Name" />
@@ -212,4 +213,8 @@
          </children>
       </HBox>
    </children>
+   <stylesheets>
+      <URL value="@../css/main.css" />
+      <URL value="@../css/table.css" />
+   </stylesheets>
 </AnchorPane>

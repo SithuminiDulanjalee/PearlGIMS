@@ -55,4 +55,17 @@ public class SupplierModel {
         }
         return "S001";
     }
+
+    public ArrayList<SupplierDTO> loadSuppliers() throws SQLException, ClassNotFoundException {
+        ResultSet result = CrudUtil.execute("SELECT supplier_id,name FROM supplier");
+        ArrayList<SupplierDTO> supplierList = new ArrayList<>();
+        while (result.next()) {
+            SupplierDTO supplier = new SupplierDTO(
+                    result.getString(1),
+                    result.getString(2)
+            );
+            supplierList.add(supplier);
+        }
+        return supplierList;
+    }
 }

@@ -14,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import lk.ijse.pearlgims.dto.SupplierDTO;
 import lk.ijse.pearlgims.model.SupplierModel;
+import lk.ijse.pearlgims.util.EmailUtil;
 
 import java.io.IOException;
 import java.net.URL;
@@ -211,5 +212,6 @@ public class SupplierPageController implements Initializable {
     }
 
     public void btnEmailOnAction(ActionEvent actionEvent) {
+        EmailUtil.sendEmail("","","");
     }
 }

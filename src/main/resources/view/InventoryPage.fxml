@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #fae9f5;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pearlgims.controller.InventoryPageController">
+   <children>
+      <TabPane layoutX="100.0" layoutY="70.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+        <tabs>
+          <Tab text="Inventory">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tblInventory" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="colInventrId1" prefWidth="75.0" text="Inventory Id" />
+                            <TableColumn fx:id="colInventotyName" prefWidth="75.0" text="Date" />
+                              <TableColumn fx:id="colSupplierId" prefWidth="75.0" text="Name" />
+                              <TableColumn fx:id="conInventryDate" prefWidth="75.0" text="Supplier Id" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Inventory Details">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tblInventoryDetails" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <columns>
+                              <TableColumn fx:id="colTBInventryId" prefWidth="75.0" text="Inventory Id" />
+                              <TableColumn fx:id="colTBMaterialId" prefWidth="75.0" text="Material Id" />
+                              <TableColumn fx:id="colTBQty" prefWidth="75.0" text="Qty" />
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Add Inventory">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="46.0" layoutY="14.0" prefHeight="200.0" prefWidth="100.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <HBox spacing="30.0">
+                                 <children>
+                                    <Label prefHeight="30.0" prefWidth="521.0" text="Add Inventry " HBox.hgrow="ALWAYS">
+                                       <font>
+                                          <Font name="SansSerif Bold Italic" size="22.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox spacing="30.0">
+                                 <children>
+                                    <Label prefWidth="145.0" text="Supplier">
+                                       <font>
+                                          <Font name="SansSerif Bold" size="16.0" />
+                                       </font></Label>
+                                    <ComboBox fx:id="cmbSupplier" prefWidth="150.0" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                              <HBox spacing="30.0">
+                                 <children>
+                                    <Label prefWidth="145.0" text="Inventory Name">
+                                       <font>
+                                          <Font name="SansSerif Bold" size="16.0" />
+                                       </font></Label>
+                                    <TextField fx:id="txtInventryName" />
+                                 </children>
+                              </HBox>
+                              <HBox spacing="30.0">
+                                 <children>
+                                    <Label prefWidth="145.0" text="Date">
+                                       <font>
+                                          <Font name="SansSerif Bold" size="16.0" />
+                                       </font></Label>
+                                    <DatePicker fx:id="dateInventriDate" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_RIGHT" spacing="30.0">
+                                 <children>
+                                    <JFXButton onAction="#btnAddInventoryOnAction" prefHeight="41.0" prefWidth="78.0" style="-fx-background-color: #772450;" text="Add" textFill="WHITE">
+                                       <font>
+                                          <Font name="SansSerif Bold" size="14.0" />
+                                       </font></JFXButton>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Add Item To Inventory">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="46.0" layoutY="14.0" prefHeight="200.0" prefWidth="100.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <HBox spacing="30.0">
+                                 <children>
+                                    <Label prefHeight="30.0" prefWidth="521.0" text="Add Inventory To Item" HBox.hgrow="ALWAYS">
+                                       <font>
+                                          <Font name="SansSerif Bold Italic" size="22.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox spacing="30.0">
+                                 <children>
+                                    <Label prefWidth="100.0" text="Inventory">
+                                       <font>
+                                          <Font name="SansSerif Bold" size="16.0" />
+                                       </font></Label>
+                                    <ComboBox fx:id="combInventry" prefWidth="150.0" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                              <HBox spacing="30.0">
+                                 <children>
+                                    <Label prefWidth="100.0" text="Raw Material">
+                                       <font>
+                                          <Font name="SansSerif Bold" size="16.0" />
+                                       </font></Label>
+                                    <ComboBox fx:id="combRowMaterial" prefWidth="150.0" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                              <HBox spacing="30.0">
+                                 <children>
+                                    <Label prefWidth="100.0" text="Quantity">
+                                       <font>
+                                          <Font name="SansSerif Bold" size="16.0" />
+                                       </font></Label>
+                                    <TextField fx:id="txtQuentity" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_RIGHT" spacing="30.0">
+                                 <children>
+                                    <JFXButton onAction="#btnAddItemToInventory" prefHeight="41.0" prefWidth="78.0" style="-fx-background-color: #772450;" text="Add" textFill="WHITE">
+                                       <font>
+                                          <Font name="SansSerif Bold" size="14.0" />
+                                       </font></JFXButton>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+   <stylesheets>
+      <URL value="@../css/main.css" />
+      <URL value="@../css/table.css" />
+   </stylesheets>
+</AnchorPane>
