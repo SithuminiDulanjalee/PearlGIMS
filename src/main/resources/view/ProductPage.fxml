@@ -58,7 +58,7 @@
                               </ImageView>
                            </children>
                         </Pane>
-                        <TableView fx:id="tblProduct" onMouseClicked="#onClickProductTable" prefHeight="656.0" prefWidth="592.0">
+                        <TableView fx:id="tblProduct" onMouseClicked="#onClickProductTable" prefHeight="656.0" prefWidth="592.0" VBox.vgrow="ALWAYS">
                            <columns>
                               <TableColumn fx:id="colProductId" prefWidth="75.0" text="Product Id" />
                               <TableColumn fx:id="colName" prefWidth="75.0" text="Name" />

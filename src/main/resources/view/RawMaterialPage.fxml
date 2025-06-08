@@ -50,7 +50,7 @@
                               </JFXButton>
                            </children>
                         </Pane>
-                        <TableView fx:id="tblRawMaterial" onMouseClicked="#onClickRawMaterialTable" prefHeight="656.0" prefWidth="592.0">
+                        <TableView fx:id="tblRawMaterial" onMouseClicked="#onClickRawMaterialTable" prefHeight="656.0" prefWidth="592.0" VBox.vgrow="ALWAYS">
                            <columns>
                               <TableColumn fx:id="colMaterialId" prefWidth="75.0" text="Material Id" />
                               <TableColumn fx:id="colName" prefWidth="75.0" text="Material Name" />

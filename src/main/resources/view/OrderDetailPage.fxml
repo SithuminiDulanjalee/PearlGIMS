@@ -48,7 +48,7 @@
                               </JFXButton>
                            </children>
                         </Pane>
-                        <TableView fx:id="tblOrderDetails" prefHeight="656.0" prefWidth="592.0">
+                        <TableView fx:id="tblOrderDetails" prefHeight="656.0" prefWidth="592.0" VBox.vgrow="ALWAYS">
                            <columns>
                               <TableColumn fx:id="colOrderId" prefWidth="75.0" text="Order Id" />
                               <TableColumn fx:id="colOrderDate" prefWidth="75.0" text="Order Date" />
